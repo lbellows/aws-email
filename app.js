@@ -21,7 +21,7 @@ app.post('/sendEmail', function (req, res) {
   sendEmail(req, res);
 });
 
-app.listen(4444);
+app.listen(process.env.PORT || '8081');
 
 function sendEmail(req, res){
   
