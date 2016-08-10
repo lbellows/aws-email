@@ -40,9 +40,9 @@ function sendEmail(req, res){
         },
         Body: {
           Html: {
-            Data: 'Name: ' + req.body.inName 
-            + '<br/>Email: ' + req.body.inEmail
-            + '<br/>Message' + req.body.inMessage
+            Data: '<b>Name:</b> ' + req.body.inName 
+            + '<br/><b>Email:</b> ' + req.body.inEmail
+            + '<br/><b>Message:</b> ' + req.body.inMessage
             
           }
         }
