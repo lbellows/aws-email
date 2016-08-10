@@ -2,13 +2,14 @@ var express = require('express');
 var bodyParser = require('body-parser');
 var aws = require('aws-sdk'); 
 
-aws.config.loadFromPath('client-config.json');
+//aws.config.loadFromPath('client-config.json');
 var ses = new aws.SES({apiVersion: '2010-12-01'});
 
 var app = express();
 
 app.use(bodyParser.json()); // support json encoded bodies
 app.use(bodyParser.urlencoded({ extended: true })); // support encoded bodies
+
 
 app.use(function(req, res, next) {
   res.header("Access-Control-Allow-Origin", "*");
