@@ -3,7 +3,7 @@ var bodyParser = require('body-parser');
 var aws = require('aws-sdk'); 
 
 //aws.config.loadFromPath('client-config.json');
-var ses = new aws.SES({apiVersion: '2010-12-01'});
+var ses = new aws.SES({apiVersion: '2010-12-01', region: 'us-east-1'});
 
 var app = express();
 
