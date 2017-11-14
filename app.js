@@ -1,6 +1,7 @@
 var express = require('express');
 var bodyParser = require('body-parser');
 var aws = require('aws-sdk'); 
+var config = require('config.json')
 
 //aws.config.loadFromPath('client-config.json');
 var ses = new aws.SES({apiVersion: '2010-12-01', region: 'us-east-1'});
@@ -26,14 +27,14 @@ app.listen(process.env.PORT || '8081');
 function sendEmail(req, res){
   
   // this must relate to a verified SES account
-  var from = 'website@4leafelectric.com';
+  var from = config.fromEmail;
 
   // this sends the email
   // @todo - add HTML version
   ses.sendEmail( 
     { 
       Source: from, 
-      Destination: { ToAddresses: ['lbellows@gmail.com'] },
+      Destination: { ToAddresses: [config.toEmail] },
       Message: {
         Subject: {
           Data: req.body.inSubject
